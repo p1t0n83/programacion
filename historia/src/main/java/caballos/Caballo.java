@@ -19,7 +19,6 @@ public class Caballo implements Comparable<Guerrero>,PuedeMontarse{
     public Guerrero[] ocupantes;
 
     public Caballo(Guerrero[] ocupante) {
-        
         int contador = 0;
         for (int i = 0; i < ocupante.length; i++) {
             
@@ -50,8 +49,9 @@ public class Caballo implements Comparable<Guerrero>,PuedeMontarse{
     }
     public int buscar(String nombre){
         int contador=0;
-        for (int i = 0; i < ocupantes.length; i++) {
-            if(nombre.equals(ocupantes[i].getNombre())){
+        for (int i = 0; i < ocupacion; i++) {
+            if(!nombre.equals(ocupantes[i].getNombre())){
+            } else {
                 contador=i;
                 System.out.println(ocupantes[i].toString());
             }
@@ -62,7 +62,6 @@ public class Caballo implements Comparable<Guerrero>,PuedeMontarse{
             return contador;
         }
     }
-
     
     
     @Override
@@ -73,7 +72,7 @@ public class Caballo implements Comparable<Guerrero>,PuedeMontarse{
     @Override
     public int montar(Guerrero g) {
       if(g instanceof Griego){
-          ocupantes[ocupacion-1]=g;
+          ocupantes[ocupacion]=g;
           ocupacion++;
           return ocupacion;
       }else if(g instanceof Troyano){

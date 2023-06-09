@@ -115,7 +115,7 @@ public abstract class Guerrero {
     public void setMuerto(boolean muerto) {
         this.muerto = muerto;
     }
-
+       
     @Override
     public String toString() {
         return "Guerrero{" + "nombre=" + nombre + ", fuerza=" + fuerza + ", edad=" + edad + ", herido=" + herido + ", muerto=" + muerto + '}';
