@@ -29,6 +29,30 @@ public class Curso {
         this.descripcion = descripcion;
         this.nHoras = nHoras;
     }
+
+    public int getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(int codigo) {
+        this.codigo = codigo;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
+    public int getnHoras() {
+        return nHoras;
+    }
+
+    public void setnHoras(int nHoras) {
+        this.nHoras = nHoras;
+    }
     
     
     
