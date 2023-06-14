@@ -6,6 +6,7 @@
 package ejercicio1;
 
 import java.util.Scanner;
+import java.util.TreeSet;
 
 /**
  *
@@ -15,7 +16,8 @@ public class Hoja4colecciones {
 
     public static void main(String[] args) {
         int opcion=0;
-        Equipo equipo= new Equipo();
+        TreeSet<Jugador> set=new TreeSet<>();
+        Equipo equipo= new Equipo(set);
         do{
             System.out.println("1.para insertar\n"
                     + "2.para borrar un jugador\n"
@@ -39,18 +41,12 @@ public class Hoja4colecciones {
                 }
             }case 2->{
                 System.out.println("Nombre del jugador a borrar:");
-                String nombre= new Scanner(System.in).nextLine();
-                System.out.println("Altura");
-                Scanner teclado=new Scanner(System.in);
-                double altura= teclado.nextDouble();
-                Jugador jugador=new Jugador(nombre, altura);
-                if(equipo.mostrarTodos()!=null){
-                if(equipo.borrar(jugador)==true){
+                String nombre= new Scanner(System.in).nextLine();               
+               
+                if(equipo.borrar(nombre)==true){
                     System.out.println("Se borro con exito");
                 }else{
                     System.out.println("Hubo un error:");
-                }}else{
-                    System.out.println("La coleccion esta vacia");
                 }
             }case 3->{
                 if(equipo.masBajo().toString()!=null)
@@ -71,7 +67,7 @@ public class Hoja4colecciones {
                 for (Object juga : equipo.dosMetros()) {
                     System.out.println(juga.toString());
             }
-            }case 6:{
+            }case 6->{
                 System.out.println(equipo.mostrarTodos());
             }
         }
