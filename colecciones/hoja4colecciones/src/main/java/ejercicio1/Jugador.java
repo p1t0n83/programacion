@@ -4,6 +4,8 @@
  */
 package ejercicio1;
 
+import java.util.Objects;
+
 /**
  *
  * @author DAW106
@@ -35,8 +37,9 @@ public class Jugador implements Comparable<Jugador>{
 
     @Override
     public int hashCode() {
-        int hash = 3;
-        hash = 13 * hash + (int) (Double.doubleToLongBits(this.estatura) ^ (Double.doubleToLongBits(this.estatura) >>> 32));
+        int hash = 5;
+        hash = 29 * hash + Objects.hashCode(this.nombre);
+        hash = 29 * hash + (int) (Double.doubleToLongBits(this.estatura) ^ (Double.doubleToLongBits(this.estatura) >>> 32));
         return hash;
     }
 
@@ -52,8 +55,13 @@ public class Jugador implements Comparable<Jugador>{
             return false;
         }
         final Jugador other = (Jugador) obj;
-        return Double.doubleToLongBits(this.estatura) == Double.doubleToLongBits(other.estatura);
+        if (Double.doubleToLongBits(this.estatura) != Double.doubleToLongBits(other.estatura)) {
+            return false;
+        }
+        return Objects.equals(this.nombre, other.nombre);
     }
+
+ 
 
     @Override
     public String toString() {
@@ -62,7 +70,14 @@ public class Jugador implements Comparable<Jugador>{
 
     @Override
     public int compareTo(Jugador o) {
-        return 0;
+        return Double.compare(o.getEstatura(), this.getEstatura());
+//       if(o.getEstatura()<this.getEstatura()){
+//           return 1;
+//       }else if(o.getEstatura()==this.getEstatura()){
+//           return 0;
+//       }else{
+//           return -1;
+//       }
     }
 
 

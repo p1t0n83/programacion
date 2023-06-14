@@ -15,8 +15,8 @@ import java.util.TreeSet;
 public class Equipo {
     private TreeSet<Jugador>  jugadores;
 
-    public Equipo() {
-        jugadores=new TreeSet<>();
+    public Equipo(TreeSet set) {
+        jugadores=set;
     }
     
     public boolean insertar(Jugador jugador){
@@ -33,12 +33,12 @@ public class Equipo {
         }return valido;
     }
     
-    public boolean borrar(Jugador jugador){
+    public boolean borrar(String nombre){
          boolean valido=false;
         try{
         Iterator<Jugador> it=jugadores.iterator();
-        while(!it.hasNext()){
-            if(jugador.equals(it)){
+        while(it.hasNext()){
+            if(nombre.equalsIgnoreCase(it.next().getNombre())){
                 it.remove();
             }
         }
@@ -61,7 +61,7 @@ public class Equipo {
             }
     
     public Jugador masBajo(){
-       double altura=0;
+       double altura=jugadores.first().getEstatura();
        Jugador j=jugadores.first();
         for (Jugador jugadore : jugadores) {
             if(jugadore.getEstatura()<altura){
@@ -73,7 +73,7 @@ public class Equipo {
     }
     
      public Jugador masAlto(){
-       double altura=0;
+       double altura=jugadores.first().getEstatura();
        Jugador j=jugadores.first();
         for (Jugador jugadore : jugadores) {
             if(jugadore.getEstatura()>altura){
@@ -85,7 +85,7 @@ public class Equipo {
     }
      
     public SortedSet dosMetros(){
-        SortedSet<Jugador> altisimos = null;
+        SortedSet<Jugador> altisimos = new TreeSet<>();
         for (Jugador jugadore : jugadores) {
             if(jugadore.getEstatura()>2){
                 altisimos.add(jugadore);
